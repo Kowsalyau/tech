@@ -1,0 +1,194 @@
+<html>
+<head>
+<title>Main.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Main.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.*;</span>
+
+<span class="s3">// Interfaces</span>
+<span class="s0">interface </span><span class="s1">Fly </span><span class="s2">{</span>
+    <span class="s0">void </span><span class="s1">fly</span><span class="s2">();</span>
+<span class="s2">}</span>
+
+<span class="s0">interface </span><span class="s1">Eat </span><span class="s2">{</span>
+    <span class="s0">void </span><span class="s1">eat</span><span class="s2">();</span>
+<span class="s2">}</span>
+
+<span class="s0">interface </span><span class="s1">SaySomething </span><span class="s2">{</span>
+    <span class="s0">void </span><span class="s1">saySomething</span><span class="s2">();</span>
+<span class="s2">}</span>
+
+<span class="s0">interface </span><span class="s1">FlyingBehaviour </span><span class="s2">{</span>
+    <span class="s0">void </span><span class="s1">flyingBehaviour</span><span class="s2">();</span>
+<span class="s2">}</span>
+
+<span class="s3">// FlyingBehaviour Implementations</span>
+<span class="s0">class </span><span class="s1">PigeonSparrowFlyingBehaviour </span><span class="s0">implements </span><span class="s1">FlyingBehaviour </span><span class="s2">{</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">flyingBehaviour</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Flying low and quick.&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+
+<span class="s0">class </span><span class="s1">CrowEagleFlyingBehaviour </span><span class="s0">implements </span><span class="s1">FlyingBehaviour </span><span class="s2">{</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">flyingBehaviour</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Flying high and strong.&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+
+<span class="s3">// Base Bird Class</span>
+<span class="s0">class </span><span class="s1">Bird </span><span class="s2">{</span>
+    <span class="s0">private int </span><span class="s1">weight</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">String name</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">String color</span><span class="s2">;</span>
+
+    <span class="s0">public void </span><span class="s1">setColor</span><span class="s2">(</span><span class="s1">String color</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">color </span><span class="s2">= </span><span class="s1">color</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">setWeight</span><span class="s2">(</span><span class="s0">int </span><span class="s1">weight</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">weight </span><span class="s2">= </span><span class="s1">weight</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">setName</span><span class="s2">(</span><span class="s1">String name</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">name </span><span class="s2">= </span><span class="s1">name</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String getColor</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">color</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String getName</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">name</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public int </span><span class="s1">getWeight</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">weight</span><span class="s2">;</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+
+<span class="s3">// Bird Subclasses</span>
+<span class="s0">class </span><span class="s1">Sparrow </span><span class="s0">extends </span><span class="s1">Bird </span><span class="s0">implements </span><span class="s1">Fly</span><span class="s2">, </span><span class="s1">Eat </span><span class="s2">{</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">eat</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Sparrow eats grains.&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">fly</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Sparrow is flying.&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+
+<span class="s0">class </span><span class="s1">Crow </span><span class="s0">extends </span><span class="s1">Bird </span><span class="s0">implements </span><span class="s1">Fly</span><span class="s2">, </span><span class="s1">Eat</span><span class="s2">, </span><span class="s1">SaySomething </span><span class="s2">{</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">eat</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Crow eats leftovers.&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">fly</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Crow is flying.&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">saySomething</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Crow says Caw Caw!&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public </span><span class="s1">String getColor</span><span class="s2">() {</span>
+        <span class="s0">return super</span><span class="s2">.</span><span class="s1">getColor</span><span class="s2">() + </span><span class="s4">&quot; (Crow specific)&quot;</span><span class="s2">;</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+
+<span class="s0">class </span><span class="s1">Pigeon </span><span class="s0">extends </span><span class="s1">Bird </span><span class="s0">implements </span><span class="s1">Fly </span><span class="s2">{</span>
+    <span class="s1">FlyingBehaviour flyingBehaviour</span><span class="s2">;</span>
+
+    <span class="s0">public </span><span class="s1">Pigeon</span><span class="s2">() {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">flyingBehaviour </span><span class="s2">= </span><span class="s0">new </span><span class="s1">PigeonSparrowFlyingBehaviour</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">fly</span><span class="s2">() {</span>
+        <span class="s1">flyingBehaviour</span><span class="s2">.</span><span class="s1">flyingBehaviour</span><span class="s2">();</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+
+<span class="s0">class </span><span class="s1">Eagle </span><span class="s0">extends </span><span class="s1">Bird </span><span class="s0">implements </span><span class="s1">Fly</span><span class="s2">, </span><span class="s1">Eat</span><span class="s2">, </span><span class="s1">SaySomething </span><span class="s2">{</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">eat</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Eagle eats meat.&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">fly</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Eagle is soaring.&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">saySomething</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Eagle screams!&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+
+<span class="s0">class </span><span class="s1">Dolphin </span><span class="s0">implements </span><span class="s1">Eat</span><span class="s2">, </span><span class="s1">SaySomething </span><span class="s2">{</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">eat</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Dolphin eats fish.&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">saySomething</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Dolphin clicks and whistles.&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+
+<span class="s3">// Main Class</span>
+<span class="s0">public class </span><span class="s1">Main </span><span class="s2">{</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">Fly</span><span class="s2">&gt; </span><span class="s1">allFlyingBirds </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+
+        <span class="s1">Fly sparrow </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Sparrow</span><span class="s2">();</span>
+        <span class="s1">Fly crow </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Crow</span><span class="s2">();</span>
+        <span class="s1">Fly pigeon </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Pigeon</span><span class="s2">();</span>
+        <span class="s1">Fly eagle </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Eagle</span><span class="s2">();</span>
+
+        <span class="s1">allFlyingBirds</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">sparrow</span><span class="s2">);</span>
+        <span class="s1">allFlyingBirds</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">crow</span><span class="s2">);</span>
+        <span class="s1">allFlyingBirds</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">pigeon</span><span class="s2">);</span>
+        <span class="s1">allFlyingBirds</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">eagle</span><span class="s2">);</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Flying Birds:&quot;</span><span class="s2">);</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">Fly bird </span><span class="s2">: </span><span class="s1">allFlyingBirds</span><span class="s2">) {</span>
+            <span class="s1">bird</span><span class="s2">.</span><span class="s1">fly</span><span class="s2">();</span>
+        <span class="s2">}</span>
+
+        <span class="s3">// Example for Dolphin and Crow</span>
+        <span class="s1">Dolphin dolphin </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Dolphin</span><span class="s2">();</span>
+        <span class="s1">Crow exampleCrow </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Crow</span><span class="s2">();</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Other actions:&quot;</span><span class="s2">);</span>
+        <span class="s1">dolphin</span><span class="s2">.</span><span class="s1">eat</span><span class="s2">();</span>
+        <span class="s1">dolphin</span><span class="s2">.</span><span class="s1">saySomething</span><span class="s2">();</span>
+        <span class="s1">exampleCrow</span><span class="s2">.</span><span class="s1">saySomething</span><span class="s2">();</span>
+        <span class="s1">exampleCrow</span><span class="s2">.</span><span class="s1">eat</span><span class="s2">();</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
